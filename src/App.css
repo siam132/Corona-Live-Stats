@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+.header-text{
+  font-size: 2em;
+  color: rgb(200, 209, 206);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -14,16 +19,25 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #444444;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: top;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.date{
+  padding-top: .5em;
+  display: grid;
+  flex-direction: column-reverse;
+  align-items: right;
+  justify-content: right;
+  opacity: 50%;
+
+}
 .App-link {
   color: #61dafb;
 }
