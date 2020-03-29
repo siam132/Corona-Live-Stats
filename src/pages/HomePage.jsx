@@ -112,7 +112,7 @@ class HomePage extends React.Component {
       );
     return (
       <div>
-        <div className="App-header">
+        <div className="App-header container-fluid">
           <div className="col-lg-5 col-md-10 col-sm-8">
             <div className="form-group">
               <form onSubmit={this.handleSubmit}>
@@ -133,13 +133,13 @@ class HomePage extends React.Component {
               </form>
             </div>
             <div className="col py-4">
-              <button onClick={this.HightoLow} className="mx-2 btn btn-warning">
+              <button onClick={this.HightoLow} className="m-2 py-2 btn btn-warning">
                 High to Low
               </button>
-              <button onClick={this.LowtoHigh} className="mx-2 btn btn-success">
+              <button onClick={this.LowtoHigh} className="m-2 py-2 btn btn-success">
                 Low to High
               </button>
-              <button onClick={this.MostDeaths} className="mx-2 btn btn-danger">
+              <button onClick={this.MostDeaths} className="m-2 py-2 btn btn-danger">
                 Most deaths
               </button>
             </div>

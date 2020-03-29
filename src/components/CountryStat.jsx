@@ -9,13 +9,13 @@ const Country = props => {
 
   return (
     <div className={`container shadow alert alert-${alertStatus} mx-2 px-5`}>
-      <div className="row row-cols-3">
+      <div className="row">
         <div className="row ">
-          <h2>
+          <h2 className=" col">
             <span className="shadow badge badge-secondary">{country}</span>
           </h2>
         </div>
-        <div className="col  ">
+        <div className="col">
           <h3>
             Active Cases:{" "}
             <span className={`${alertStatus}`}>{props.stats.cases.active}</span>
@@ -24,7 +24,7 @@ const Country = props => {
           <h4>Recovered: {props.stats.cases.critical}</h4>
           <h4>Total: {props.stats.cases.total}</h4>
         </div>
-        <div className="col">
+        <div className="col ">
           <h3>Total Deaths: {props.stats.deaths.total}</h3>
           <h4>
             New deaths:
