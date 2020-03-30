@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+
 import Country from "../components/CountryStat";
 import Loading from "../components/Loading";
-
+import Charts from "./ChartPage";
 
 class HomePage extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class HomePage extends React.Component {
     this.state = {
       word_query: "",
       data: [],
+      Chartdata: [],
       isLoading: true
     };
 
@@ -65,8 +67,12 @@ class HomePage extends React.Component {
         }
       })
         .then(response => {
-          this.setState({ data: response.data.response, isLoading: false });
-          // console.log(this.state.data);
+          this.setState({
+            data: response.data.response,
+            isLoading: false,
+            Chartdata: response.data.response
+          });
+          console.log(this.state.data);
         })
         .catch(error => {
           console.log(error);
@@ -125,7 +131,7 @@ class HomePage extends React.Component {
                 />
                 <div className="row justify-content-start">
                   <input
-                    className="col-4 btn btn-primary py-2 m-3"
+                    className="col-4 btn btn-outline-light py-2 m-3"
                     type="submit"
                     value="Search"
                   />
@@ -133,20 +139,37 @@ class HomePage extends React.Component {
               </form>
             </div>
             <div className="col py-4">
-              <button onClick={this.HightoLow} className="m-2 py-2 btn btn-warning">
+              <button
+                onClick={this.HightoLow}
+                className="m-2 py-2 btn btn-outline-warning"
+              >
                 High to Low
               </button>
-              <button onClick={this.LowtoHigh} className="m-2 py-2 btn btn-success">
+              <button
+                onClick={this.LowtoHigh}
+                className="m-2 py-2 btn btn-outline-success"
+              >
                 Low to High
               </button>
-              <button onClick={this.MostDeaths} className="m-2 py-2 btn btn-danger">
+              <button
+                onClick={this.MostDeaths}
+                className="m-2 py-2 btn btn-outline-danger"
+              >
                 Most deaths
               </button>
             </div>
           </div>
+
+          <Charts stats={this.state.Chartdata} />
+          <h1>
+            <u>Country Stats</u>
+          </h1>
+          <br></br>
+          
           {this.state.data.map((e, key) => {
             return <Country id={key} key={key} stats={e} />;
           })}
+         
         </div>
         <span className="text-muted">Made By: Siam</span>
         <br></br>

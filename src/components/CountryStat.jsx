@@ -9,6 +9,7 @@ const Country = props => {
 
   return (
     <div className={`container shadow alert alert-${alertStatus} mx-2 px-5`}>
+      
       <div className="row">
         <div className="row ">
           <h2 className=" col">
